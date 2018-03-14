@@ -1,0 +1,7 @@
+[main]
+host = https://www.transifex.com
+
+[innoket.qt-translation-012x]
+file_filter = src/qt/locale/innoket_<lang>.ts
+source_file = src/qt/locale/innoket_en.ts
+source_lang = en
