@@ -118,10 +118,10 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("0x0000033b01055cf8df90b01a14734cae92f7039b9b0e48887b4e33a469d7bc07"));
         assert(genesis.hashMerkleRoot == uint256S("0xdc9a719dc1bcda39107ea55424f00cab512170a1cb69efa08531f483f2399f21"));
 
-        vSeeds.push_back(CDNSSeedData("innoket.network", "seed1.innoket.network"));
-        vSeeds.push_back(CDNSSeedData("innoket.network", "seed2.innoket.network"));
-        vSeeds.push_back(CDNSSeedData("innoket.network", "seed3.innoket.network"));
-        vSeeds.push_back(CDNSSeedData("innoket.network", "seed4.innoket.network"));
+        vSeeds.push_back(CDNSSeedData("seed1.innoket.io", "seed1.innoket.io"));
+        vSeeds.push_back(CDNSSeedData("seed2.innoket.io", "seed2.innoket.io"));
+        vSeeds.push_back(CDNSSeedData("seed3.innoket.io", "seed3.innoket.io"));
+        vSeeds.push_back(CDNSSeedData("seed4.innoket.io", "seed4.innoket.io"));
 
         // Innoket addresses start with 'G'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,38);
@@ -228,8 +228,8 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("innoket.network",  "testnet-dns.innoket.network"));
-        vSeeds.push_back(CDNSSeedData("innoket.network",  "testnet2-dns.innoket.network"));
+        vSeeds.push_back(CDNSSeedData("seed1.innoket.io",  "seed1.innoket.io"));
+        vSeeds.push_back(CDNSSeedData("seed2.innoket.io",  "seed2.innoket.io"));
 
         // Testnet Innoket addresses start with 'n'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,112);
