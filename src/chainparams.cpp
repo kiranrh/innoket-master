@@ -114,7 +114,7 @@ public:
         nPruneAfterHeight = 100000;
 
         genesis = CreateGenesisBlock(1510848000, 1631855, 0x1e0ffff0, 1, 50 * COIN);
-        printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+        strprintf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
         
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S(""));
@@ -322,7 +322,7 @@ public:
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1510727100, 901219, 0x1e0ffff0, 1, 50 * COIN);
-        printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+        strprintf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S(""));
         assert(genesis.hashMerkleRoot == uint256S(""));
