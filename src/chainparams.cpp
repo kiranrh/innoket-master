@@ -43,8 +43,8 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks";
-    const CScript genesisOutputScript = CScript() << ParseHex("043e5a5fbfbb2caa5f4b7c8fd24d890d6c244de254d579b5ba629f64c1b48275f59e0e1c834a60f6ffb4aaa022aaa4866434ca729a12465f80618fb2070045cb16") << OP_CHECKSIG;
+    const char* pszTimestamp = "This is Innoket coin gen - 15/Mar/2018.";
+    const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
@@ -113,12 +113,10 @@ public:
         nMaxTipAge = 6 * 60 * 60; // ~144 blocks behind -> 2 x fork detection time, was 24 * 60 * 60 in bitcoin
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1231006505, 2083236893, 0x1d00ffff, 1, 50 * COIN);
-        std::cout << "genesis.GetHash = \n" << genesis.GetHash().ToString().c_str();
-        
+        genesis = CreateGenesisBlock(1521122498, 149198, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("de368e48fc17ce8b90cae3abcbf25cdb1994019b3fbc646a9439169cc000b830"));
-       // assert(genesis.hashMerkleRoot == uint256S("4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00000b9d7f122df17d615b9cd119fa4f8f018ac03f1e30bb7562e46a5f55e3d5"));
+        assert(genesis.hashMerkleRoot == uint256S("0x3b118a676636e2bc0a07d35786a9f4f8eb82db04398659f42ddb7c4c1eb310f7"));
 
         vSeeds.push_back(CDNSSeedData("seed1.innoket.io", "seed1.innoket.io"));
         vSeeds.push_back(CDNSSeedData("seed2.innoket.io", "seed2.innoket.io"));
@@ -218,32 +216,32 @@ public:
         pchMessageStart[1] = 0x2b;
         pchMessageStart[2] = 0xb3;
         pchMessageStart[3] = 0x7a;
-        vAlertPubKey = ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f");
+        vAlertPubKey = ParseHex("0458b688c478d2a3febf4e86db1b1c2f862cfb31780b6247c7caa35145e9cb16f55a60cc476654fedaa1dcd807c8432ee5a5f2324f727a0531713c66f7734b351c");
         nDefaultPort = 13455;
         nMaxTipAge = 0x7fffffff; // allow mining on top of old blocks for testnet
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1231006505, 2083236893, 0x1d00ffff, 1, 50 * COIN);
+       genesis = CreateGenesisBlock(1521122498, 149198, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-   //     assert(consensus.hashGenesisBlock == uint256S("000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"));
-       // assert(genesis.hashMerkleRoot == uint256S("4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00000b9d7f122df17d615b9cd119fa4f8f018ac03f1e30bb7562e46a5f55e3d5"));
+        assert(genesis.hashMerkleRoot == uint256S("0x3b118a676636e2bc0a07d35786a9f4f8eb82db04398659f42ddb7c4c1eb310f7"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("seed1.innoket.io",  "seed1.innoket.io"));
-        vSeeds.push_back(CDNSSeedData("seed2.innoket.io",  "seed2.innoket.io"));
+        vSeeds.push_back(CDNSSeedData("gobyte.network",  "testnet-dns.gobyte.network"));
+        vSeeds.push_back(CDNSSeedData("gobyte.network",  "testnet2-dns.gobyte.network"));
 
-        // Testnet Innoket addresses start with 'n'
+        // Testnet GoByte addresses start with 'n'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,112);
-        // Testnet Innoket script addresses start with '9'
+        // Testnet GoByte script addresses start with '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,20);
         // Testnet private keys start with '9' or 'c' (Bitcoin defaults) (?)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,240);
-        // Testnet Innoket BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Testnet GoByte BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Testnet Innoket BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Testnet GoByte BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
-        // Testnet Innoket BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet GoByte BIP44 coin type is '1' (All coin's testnet default)
         base58Prefixes[EXT_COIN_TYPE]  = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
@@ -321,11 +319,10 @@ public:
         nDefaultPort = 13565;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1231006505, 2083236893, 0x1d00ffff, 1, 50 * COIN);
-        strprintf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+        genesis = CreateGenesisBlock(1521122498, 149198, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == consensus.hashGenesisBlock);
-        assert(genesis.hashMerkleRoot == genesis.hashMerkleRoot);
+        assert(consensus.hashGenesisBlock == uint256S("0x00000b9d7f122df17d615b9cd119fa4f8f018ac03f1e30bb7562e46a5f55e3d5"));
+        assert(genesis.hashMerkleRoot == uint256S("0x3b118a676636e2bc0a07d35786a9f4f8eb82db04398659f42ddb7c4c1eb310f7"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();  //! Regtest mode doesn't have any DNS seeds.
@@ -345,17 +342,17 @@ public:
             0,
             0
         };
-        // Regtest Innoket addresses start with 'n'
+        // Regtest GoByte addresses start with 'n'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,112);
-        // Regtest Innoket script addresses start with '9'
+        // Regtest GoByte script addresses start with '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,20);
         // Regtest private keys start with '9' or 'c' (Bitcoin defaults) (?)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,240);
-        // Regtest Innoket BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Regtest GoByte BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Regtest Innoket BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Regtest GoByte BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
-        // Regtest Innoket BIP44 coin type is '1' (All coin's testnet default)
+        // Regtest GoByte BIP44 coin type is '1' (All coin's testnet default)
         base58Prefixes[EXT_COIN_TYPE]  = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
    }
 };
