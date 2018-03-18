@@ -150,21 +150,7 @@ public:
         strMasternodePaymentsPubKey = "042925f2904184e419f890076f94e24943b20e149b4ba703e90b03d974ed04325e2cb289941d220e161000ead5e1cefebe160993df6f3b23741fa5f6e4c6f7a123";
 
         checkpointData = (CCheckpointData) {
-            boost::assign::map_list_of
-            (   500, uint256S("0x00000000009d382b57dda9a0e169d1f3f6f384eff5aecbf24329457bb1b30962"))
-            (  5500, uint256S("0x00000000002e3468a5196451755b5ff8d27cb7260a34250c98b0607eddfd91b2"))
-            ( 10500, uint256S("0x000000000018df60822b6fc7e13b2da59e5c7ee29e015bebb7cfaddc22001180"))
-            ( 15500, uint256S("0x00000000003c1ae6c074c7798f1b8111916bfa86a7f41ec51633d1fc1c925140"))
-            ( 20500, uint256S("0x0000000000702ff7699e8efd6af8b0ed888f77152078ed7bc782ece100e134aa"))
-            ( 25500, uint256S("0x00000000002e31e50a1753f1eff7b9d6e34b4a9def0aecd232a30b8cd5a602b4"))
-            ( 30500, uint256S("0x000000000043b2ab4bd00554e3265d00d89144ac38fe309b23030416f00bf977"))
-            ( 35500, uint256S("0x000000000005e20fc8021a844309e6d3e9835cd85245584a163379be39d8905f"))
-            ( 40500, uint256S("0x0000000000289c1d313b29dd50d86cbe6be0bf820c003a48244d0ec1e90e2849"))
-            ( 45500, uint256S("0x000000000000e3567b64c9628340e5cee8fc339b775c6164dd0333943faff781")),
-            1518111835, // * UNIX timestamp of last checkpoint block
-            110467,   // * total number of transactions between genesis and last checkpoint
-                        //   (the tx=... number in the SetBestChain debug.log lines)
-            2800        // * estimated number of transactions per day after checkpoint
+                    // * estimated number of transactions per day after checkpoint
         };
     }
 };
